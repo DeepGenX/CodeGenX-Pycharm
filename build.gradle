@@ -1,0 +1,32 @@
+plugins {
+    id 'org.jetbrains.intellij' version '1.3.0'
+    id 'java'
+}
+
+group 'com.deepgenx'
+version '0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+intellij {
+    plugins = ["python-ce"]
+    pluginName = "codegenx-pycharm-plugin"
+    version = 'PC-2021.2.3'
+}
+
+patchPluginXml {
+    changeNotes = """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,50 @@
+<idea-plugin>
+    <id>com.deepgenx.codegenx.plugin</id>
+    <name>CodeGenX</name>
+    <vendor email="wswdkt88@gmail.com" url="">Terry Jia</vendor>
+
+    <description><![CDATA[<p>
+		CodeGenX Plugin for PyCharm
+	</p>
+	<p>
+		If you find any issues, please report them (<a href="https://github.com/jtydhr88/codegenx-pycharm-plugin/issues">GitHub issue tracker</a>).
+	</p>]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.python</depends>
+    <depends>com.intellij.modules.json</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable
+            parentId="tools"
+            instance="com.deepgenx.codegenx.settings.ApplicationSettingsConfigurable"
+            id="com.deepgenx.codegenx.settings.ApplicationSettingsConfigurable"
+            displayName="CodeGenX"
+        />
+        <applicationService
+            serviceImplementation="com.deepgenx.codegenx.settings.ApplicationSettingsState"
+        />
+        <toolWindow
+            id="CodeGenX"
+            secondary="false"
+            anchor="right"
+            factoryClass="com.deepgenx.codegenx.viewer.CodeGenXToolWindowFactory"
+        />
+    </extensions>
+
+    <actions>
+        <action
+            id="com.deepgenx.codegenx.actions.InsertCodeAction"
+            class="com.deepgenx.codegenx.actions.InsertCodeAction"
+            text="CodeGenX Insert Code Action"
+            description="CodeGenX insert code action">
+        </action>
+        <action
+                id="com.deepgenx.codegenx.actions.FetchCodeAction"
+                class="com.deepgenx.codegenx.actions.FetchCodeAction"
+                text="CodeGenX Fetch Code Action"
+                description="CodeGenX fetch code action">
+        </action>
+    </actions>
+</idea-plugin>
